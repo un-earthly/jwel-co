@@ -1,14 +1,18 @@
 import React from 'react'
 import Link from 'next/link'
 import { MenuAlt1Icon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline'
+import { useSession, signIn, signOut } from "next-auth/react"
 type Props = {
     children: React.ReactNode;
 };
 export default function Navbar({ children }: Props) {
+    const { data: session } = useSession()
     const menuLinks = <>
         <Link href="/">Home</Link>
-        <Link href="/jwellaries">Jwellaries</Link>
-        <Link href="/login">Login</Link>
+
+        <Link href="/login">{session ? "Sign out"
+            : "Sign in"
+        }</Link>
         <Link href="/cart">
             <div className="indicator">
                 <span className="indicator-item h-5 w-5 badge">{0}</span>
@@ -21,7 +25,7 @@ export default function Navbar({ children }: Props) {
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
-                <div className="w-full navbar bg-base-300 justify-between p-5">
+                <div className="w-full navbar bg-base-200 justify-between p-5 sticky -top-3 z-50">
                     <div className="lg:hidden">
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                             <MenuAlt1Icon height={24} />

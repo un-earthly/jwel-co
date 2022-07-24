@@ -9,9 +9,11 @@
     "@heroicons/react": "^1.0.6",
     "daisyui": "^2.19.0",
     "next": "latest",
+    "next-auth": "^4.10.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-hook-form": "^7.33.1"
+    "react-hook-form": "^7.33.1",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
