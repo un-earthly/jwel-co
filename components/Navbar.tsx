@@ -1,18 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { MenuAlt1Icon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline'
-import { useSession, signIn, signOut } from "next-auth/react"
 type Props = {
     children: React.ReactNode;
 };
 export default function Navbar({ children }: Props) {
-    const { data: session } = useSession()
     const menuLinks = <>
         <Link href="/">Home</Link>
 
-        <Link href="/login">{session ? "Sign out"
-            : "Sign in"
-        }</Link>
+        <Link href="/login">Sign in</Link>
         <Link href="/cart">
             <div className="indicator">
                 <span className="indicator-item h-5 w-5 badge">{0}</span>
