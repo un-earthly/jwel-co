@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { MenuAlt1Icon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline'
+import auth from '../firebase.init';
 type Props = {
     children: React.ReactNode;
 };
@@ -12,7 +13,7 @@ export default function Navbar({ children }: Props) {
         <Link href="/cart">
             <div className="indicator">
                 <span className="indicator-item h-5 w-5 badge">{0}</span>
-                <ShoppingCartIcon height={25} width={25} />
+                <ShoppingCartIcon className="cursor-pointer" height={25} width={25} />
             </div>
 
         </Link>
