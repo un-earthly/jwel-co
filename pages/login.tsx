@@ -3,7 +3,9 @@ import Link from 'next/link';
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Social from '../components/Social';
-
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth"
+import auth from '../firebase.init';
+import { toast } from 'react-toastify';
 
 export default function Login() {
 
@@ -13,8 +15,9 @@ export default function Login() {
     };
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-    const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
-
+    const [login, user, loading, err] = useSignInWithEmailAndPassword(auth);
+    const onSubmit: SubmitHandler<Inputs> = ({ email, pass }) => login(email, pass);
+    user ? toast.success(`Logged in as ${user?.user.displayName}`) : toast.error(err?.message)
     return (
         <div>
 

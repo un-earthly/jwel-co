@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { MenuAlt1Icon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline'
-import auth from '../firebase.init';
+import { MenuAlt1Icon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline';
 type Props = {
     children: React.ReactNode;
 };

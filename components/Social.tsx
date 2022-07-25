@@ -5,7 +5,7 @@ import auth from '../firebase.init'
 export default function Social() {
     const [SigninWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     const [SignInWithFacebook, Fuser, Floading, Ferror] = useSignInWithFacebook(auth);
-    (Guser || Fuser) ? toast.success(`Logged in as ${Guser?.user.displayName || Fuser?.user.displayName}`) : toast.error(Gerror || Ferror)
+    (Guser || Fuser) ? toast.success(`Logged in as ${Guser?.user.displayName || Fuser?.user.displayName}`) : toast.error(Gerror?.message || Ferror?.message)
     return (
         <>
             <div className="divider">OR</div>
