@@ -3,7 +3,9 @@ import Link from 'next/link';
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Social from '../components/Social';
-
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth"
+import auth from '../firebase.init';
+import { toast } from 'react-toastify';
 export default function signin() {
 
     type Inputs = {
@@ -11,9 +13,17 @@ export default function signin() {
         email: string,
         pass: string,
     };
-
+    const [registerUser, user, loading, err] = useCreateUserWithEmailAndPassword(auth)
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-    const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+    const onSubmit: SubmitHandler<Inputs> = async ({ name, email, pass }) => {
+        await registerUser(email, pass)
+        await updateProfile({ displayName: name })
+    }
+
+    if (user?.user.displayName) {
+        toast.success(`Registered user ${user.user.displayName || error?.message || err?.message}`)
+    }
     return (
         <div>
 
