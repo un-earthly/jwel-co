@@ -4,13 +4,17 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Provider } from "react-redux"
+import store from '../redux/app/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Navbar>
-    <Component {...pageProps} />
-    <Footer />
-    <ToastContainer />
-  </Navbar>
+  return <Provider store={store}>
+    <Navbar>
+      <Component {...pageProps} />
+      <Footer />
+      <ToastContainer />
+    </Navbar>
+  </Provider>
 }
 
 export default MyApp
