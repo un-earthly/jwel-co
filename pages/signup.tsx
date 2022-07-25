@@ -21,6 +21,9 @@ export default function signin() {
         await updateProfile({ displayName: name })
     }
 
+    if (loading || updating) {
+        toast.warn(`Please Wait`)
+    }
     if (user?.user.displayName) {
         toast.success(`Registered user ${user.user.displayName || error?.message || err?.message}`)
     }
