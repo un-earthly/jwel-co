@@ -4,25 +4,19 @@ import { MenuAlt1Icon, XIcon, ShoppingCartIcon } from '@heroicons/react/outline'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { signOut } from 'firebase/auth';
+import { currentItem } from "../redux/slices/cartSlice"
+import { useSelector } from "react-redux"
 type Props = {
     children: React.ReactNode;
 };
 export default function Navbar({ children }: Props) {
     const [user, loading, err] = useAuthState(auth)
+    const quantity = useSelector(currentItem)
     const menuLinks = <>
         <Link href="/">Home</Link>
 
         {
             user ? <div className='flex flex-col items-center'>
-                {/* <div className="dropdown">
-                    <label className="btn m-1 cursor-pointer">
-                       
-                    </label>
-                    <ul className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 2</a></li>
-                        </ul>
-                    </div> */}
 
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="cursor-pointer m-1">
@@ -44,7 +38,7 @@ export default function Navbar({ children }: Props) {
         }
         <Link href="/cart">
             <div className="indicator">
-                <span className="indicator-item h-5 w-5 badge">{0}</span>
+                <span className="indicator-item h-5 w-5 badge">{quantity.length}</span>
                 <ShoppingCartIcon className="cursor-pointer" height={25} width={25} />
             </div>
 
