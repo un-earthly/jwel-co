@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import ProductDetails from '../../components/ProductDetails'
+import ProductDetails from '../../components/CartProductDetails'
 
 const Jewellery = () => {
     const router = useRouter()

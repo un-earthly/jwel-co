@@ -3,21 +3,11 @@ import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
 import { addToCart } from '../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import store from '../redux/app/store';
-interface Product {
-    product: {
-        title: string,
-        desc: string,
-        price: number,
-        img: string,
-        quantity: string,
-        category: string,
-        rating: number,
-        id: string
-    }
+import AddToCartBtn from './AddToCartBtn';
+import { Jwellary } from '../Interfaces/JwellaryInterface';
 
-}
-export default function ProductDetails({ product }: Product) {
-    const { title, desc, price, img, quantity, id, } = product;
+export default function ProductDetails({ jewl }: Jwellary) {
+    const { title, description: desc, price, image: img, quantity, id, } = jewl;
     return (
         <div className='grid grid-cols-5'>
 
@@ -36,7 +26,7 @@ export default function ProductDetails({ product }: Product) {
                 <MinusIcon className='h-8 cursor-pointer' />
             </div>
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
-                <button className='button'>Add to Cart</button>
+                <AddToCartBtn jewl={jewl} />
                 <button className='button'>Remove from Cart</button>
             </div>
 
