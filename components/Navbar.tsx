@@ -11,7 +11,7 @@ type Props = {
 };
 export default function Navbar({ children }: Props) {
     const [user, loading, err] = useAuthState(auth)
-    const quantity = useSelector(currentItem)
+    const quantity = useSelector(currentItem).map(q => q.quantity).reduce((a, b) => a + b, 0)
     const menuLinks = <>
         <Link href="/">Home</Link>
 
@@ -38,7 +38,7 @@ export default function Navbar({ children }: Props) {
         }
         <Link href="/cart">
             <div className="indicator">
-                <span className="indicator-item h-5 w-5 badge">{quantity.length}</span>
+                <span className="indicator-item h-5 w-5 badge">{quantity}</span>
                 <ShoppingCartIcon className="cursor-pointer" height={25} width={25} />
             </div>
 
