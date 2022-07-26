@@ -1,9 +1,6 @@
 import React from 'react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
-import { addToCart } from '../redux/slices/cartSlice';
-import { useDispatch } from 'react-redux';
-import store from '../redux/app/store';
-import AddToCartBtn from './HandleCartBtn';
+import AddToCartBtn from './HandleAddToCartBtn';
 import { Jwellary } from '../Interfaces/JwellaryInterface';
 
 export default function ProductDetails({ jewl }: Jwellary) {
