@@ -12,7 +12,6 @@ type Props = {
 export default function Navbar({ children }: Props) {
     const [user, loading, err] = useAuthState(auth);
     const quantityArray = useSelector(currentItem);
-    console.log(quantityArray)
     const quantity = quantityArray.map((q: { quantity: number }) => q.quantity).reduce((a: number, b: number) => a + b, 0)
 
     const menuLinks = <>

@@ -3,14 +3,14 @@ import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
 import AddToCartBtn from './HandleAddToCartBtn';
 import { Jewelery } from '../Interfaces/JwellaryInterface';
 import { useDispatch } from 'react-redux';
-// import { removeFromCart } from '../redux/slices/cartSlice';
+import { removeFromCart } from '../redux/slices/cartSlice';
 
 export default function ProductDetails({ jewl }: Jewelery) {
     const { title, description: desc, price, image: img, quantity, id, } = jewl;
     const dispatch = useDispatch();
-    // const RemoveItem = () => {
-    //     dispatch(removeFromCart(jewl.id));
-    // }
+    const RemoveItem = () => {
+        dispatch(removeFromCart(jewl));
+    }
     return (
         <div className='grid grid-cols-5'>
 
@@ -30,7 +30,7 @@ export default function ProductDetails({ jewl }: Jewelery) {
             </div>
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
                 <AddToCartBtn jewl={jewl} />
-                {/* <button className='button' onClick={RemoveItem}>Remove from Basket</button> */}
+                <button className='button' onClick={RemoveItem}>Remove from Basket</button>
             </div>
 
         </div >
