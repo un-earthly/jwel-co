@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { Jwellary } from '../Interfaces/JwellaryInterface';
+import { Jewelery } from '../Interfaces/JwellaryInterface';
 import { addToCart } from '../redux/slices/cartSlice';
-export default function AddToCartBtn({ jewl }: Jwellary, add: boolean) {
+export default function AddToCartBtn({ jewl }: Jewelery, add: boolean) {
     const dispatch = useDispatch();
     const dispatchCart = () => {
         dispatch(addToCart(jewl));

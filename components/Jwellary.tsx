@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react'
-import { Jwellary } from '../Interfaces/JwellaryInterface';
+import { Jewelery } from '../Interfaces/JwellaryInterface';
 import HandleCartBtn from './HandleAddToCartBtn';
-export default function Jwellaries({ jewl }: Jwellary) {
+export default function Jwellaries({ jewl }: Jewelery) {
     const { id, title, price, description: desc, category, image: img } = jewl;
 
     return (

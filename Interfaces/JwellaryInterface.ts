@@ -1,4 +1,4 @@
-export interface Jwellary {
+export interface Jewelery {
     jewl: {
         title: string,
         description: string,
@@ -6,7 +6,7 @@ export interface Jwellary {
         image: string,
         quantity: string,
         category: string,
-        rating: number,
-        id: string
+        rating: { rate: number, count: number },
+        id: string | number
     }
 }

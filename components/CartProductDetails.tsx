@@ -1,10 +1,16 @@
 import React from 'react'
 import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
 import AddToCartBtn from './HandleAddToCartBtn';
-import { Jwellary } from '../Interfaces/JwellaryInterface';
+import { Jewelery } from '../Interfaces/JwellaryInterface';
+import { useDispatch } from 'react-redux';
+// import { removeFromCart } from '../redux/slices/cartSlice';
 
-export default function ProductDetails({ jewl }: Jwellary) {
+export default function ProductDetails({ jewl }: Jewelery) {
     const { title, description: desc, price, image: img, quantity, id, } = jewl;
+    const dispatch = useDispatch();
+    // const RemoveItem = () => {
+    //     dispatch(removeFromCart(jewl.id));
+    // }
     return (
         <div className='grid grid-cols-5'>
 
@@ -19,12 +25,12 @@ export default function ProductDetails({ jewl }: Jwellary) {
             </div>
             <div className='flex flex-col sm:flex-row space-x-3 items-center justify-self-center sm:justify-self-end mr-5'>
                 <PlusIcon className='h-8 cursor-pointer' />
-                <span className='font-bold'>{!quantity ? 0 : quantity}</span>
+                <span className='font-bold'>{quantity}</span>
                 <MinusIcon className='h-8 cursor-pointer' />
             </div>
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
                 <AddToCartBtn jewl={jewl} />
-                <button className='button'>Remove from Cart</button>
+                {/* <button className='button' onClick={RemoveItem}>Remove from Basket</button> */}
             </div>
 
         </div >
