@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react'
 import { Jwellary } from '../Interfaces/JwellaryInterface';
-import AddToCartBtn from './AddToCartBtn';
+import HandleCartBtn from './HandleCartBtn';
 export default function Jwellaries({ jewl }: Jwellary) {
     const { id, title, price, description: desc, category, image: img } = jewl;
 
@@ -18,7 +18,7 @@ export default function Jwellaries({ jewl }: Jwellary) {
                 <p className="text-sm">{desc}</p>
                 <p className="text-sm">{price}</p>
                 <div className="card-actions justify-between">
-                    <AddToCartBtn jewl={jewl} />
+                    <HandleCartBtn jewl={jewl} add={true} />
                     <Link href={`details/${id}`}>
                         Details
                     </Link>

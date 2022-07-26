@@ -5,7 +5,7 @@ export default function HomeBanner() {
     return (
         <div>
 
-            <Carousel autoPlay={true} showStatus={false} showThumbs={false}>
+            <Carousel className='h-[500px] overflow-hidden' autoPlay={true} showStatus={false} showThumbs={false} showIndicators={false}>
                 <div>
                     <img
                         loading='lazy'

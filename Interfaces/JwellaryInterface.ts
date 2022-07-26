@@ -9,5 +9,4 @@ export interface Jwellary {
         rating: number,
         id: string
     }
-
 }

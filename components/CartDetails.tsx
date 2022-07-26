@@ -3,7 +3,7 @@ import { MinusIcon, PlusIcon } from '@heroicons/react/solid';
 import { addToCart } from '../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import store from '../redux/app/store';
-import AddToCartBtn from './AddToCartBtn';
+import AddToCartBtn from './HandleCartBtn';
 import { Jwellary } from '../Interfaces/JwellaryInterface';
 
 export default function ProductDetails({ jewl }: Jwellary) {
@@ -22,7 +22,7 @@ export default function ProductDetails({ jewl }: Jwellary) {
             </div>
             <div className='flex flex-col sm:flex-row space-x-3 items-center justify-self-center sm:justify-self-end mr-5'>
                 <PlusIcon className='h-8 cursor-pointer' />
-                <span className='font-bold'>{quantity}</span>
+                <span className='font-bold'>{!quantity ? 0 : quantity}</span>
                 <MinusIcon className='h-8 cursor-pointer' />
             </div>
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
