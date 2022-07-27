@@ -6,6 +6,7 @@ import Social from '../components/Social';
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth"
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
+import Router, { useRouter } from 'next/router';
 
 export default function Login() {
 
@@ -15,9 +16,10 @@ export default function Login() {
     };
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+    const router = useRouter()
     const [login, user, loading, err] = useSignInWithEmailAndPassword(auth);
     const onSubmit: SubmitHandler<Inputs> = ({ email, pass }) => login(email, pass);
-    user ? toast.success(`Logged in as ${user?.user.displayName}`) : toast.error(err?.message)
+    user ? (Router.push('/'), toast.success(`Logged in as ${user?.user.displayName}`)) : toast.error(err?.message);
     return (
         <div>
 
@@ -30,7 +32,7 @@ export default function Login() {
                 <div>
                     <input
                         type="text"
-                        className="w-full p-4 bg-gray-900/50 focus:outline-none"
+                        className="w-full p-4 bg-neutral text-neutral-content focus:outline-none"
                         {...register("email", { required: true })}
                         placeholder="Email address"
                     />
@@ -41,7 +43,7 @@ export default function Login() {
                 <div>
                     <input
                         type="password"
-                        className="w-full p-4 bg-gray-900/50 focus:outline-none"
+                        className="w-full p-4 bg-neutral text-neutral-content focus:outline-none"
                         placeholder="Password"
                         {...register("pass", { required: true })}
 

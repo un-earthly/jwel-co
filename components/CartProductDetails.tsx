@@ -6,13 +6,13 @@ import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../redux/slices/cartSlice';
 
 export default function ProductDetails({ jewl }: Jewelery) {
-    const { title, description: desc, price, image: img, quantity, id, } = jewl;
+    const { title, description: desc, price, image: img, quantity, } = jewl;
     const dispatch = useDispatch();
     const RemoveItem = () => {
         dispatch(removeFromCart(jewl));
     }
     return (
-        <div className='grid grid-cols-5'>
+        <div className='grid grid-cols-5 my-3'>
 
             <img src={img} height={200} width={200} className='object-contain' />
             <div className='col-span-2 mx-5 my-auto'>
@@ -30,7 +30,7 @@ export default function ProductDetails({ jewl }: Jewelery) {
             </div>
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
                 <AddToCartBtn jewl={jewl} />
-                <button className='button' onClick={RemoveItem}>Remove from Basket</button>
+                <button className='button' onClick={RemoveItem}>Remove from Cart</button>
             </div>
 
         </div >

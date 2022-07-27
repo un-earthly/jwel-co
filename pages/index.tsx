@@ -27,7 +27,7 @@ export default Home
 
 export async function getServerSideProps() {
   const jwellaries = await fetch("https://fakestoreapi.com/products/category/jewelery")
-    .then((res) => res.json());
+    .then(res => res.json());
 
   return {
     props: {
