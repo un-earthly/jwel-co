@@ -9,7 +9,6 @@ export default function AddToCartBtn({ jewl }: Jewelery, add: boolean) {
     const router = useRouter()
     const [user] = useAuthState(auth)
     const dispatch = useDispatch();
-    console.log(router)
     const dispatchCart = () => {
         dispatch(addToCart(jewl));
     }

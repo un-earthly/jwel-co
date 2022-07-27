@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import ProductDetails from '../components/CartProductDetails'
+import { Jewelery } from '../Interfaces/JwellaryInterface'
 import { currentItem } from '../redux/slices/cartSlice'
 
 export default function Cart() {
@@ -16,7 +17,7 @@ export default function Cart() {
                 <div>
 
                     {
-                        jwellaries.map(j => <ProductDetails jewl={j} key={j.id} />)
+                        jwellaries.map(({ jewl }: Jewelery) => <ProductDetails jewl={jewl} key={jewl.id} />)
                     }
                 </div>
             </div>

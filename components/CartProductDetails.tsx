@@ -5,7 +5,7 @@ import { Jewelery } from '../Interfaces/JwellaryInterface';
 import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../redux/slices/cartSlice';
 
-export default function ProductDetails({ jewl }: Jewelery) {
+export default function ProductDetails(jewl: any) {
     const { title, description: desc, price, image: img, quantity, } = jewl;
     const dispatch = useDispatch();
     const RemoveItem = () => {

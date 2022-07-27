@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
 
 const initialState = {
     items: []
@@ -15,8 +14,8 @@ const cartSlice = createSlice({
         },
 
         removeFromCart: (state, action) => {
-            const item = state.items.find((item) => item.id === action.payload.id);
-            const index = state.items.findIndex((item) => item.id === action.payload.id);
+            const item = state.items.find((item: { id: number | string }) => item.id === action.payload.id);
+            const index = state.items.findIndex((item: { id: number | string }) => item.id === action.payload.id);
             console.log(index)
             item.quantity === 1 ? state.items.splice(index, 1) : item.quantity--;
         }
