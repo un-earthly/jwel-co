@@ -1,11 +1,9 @@
 import { StarIcon } from "@heroicons/react/solid";
-import { useState } from "react";
 import AddToCartBtn from "../../components/HandleAddToCartBtn"
 import { Jewelery } from "../../Interfaces/JwellaryInterface"
 
 const Jewellery = ({ jewl }: Jewelery) => {
     const { image: img, title, price, description: desc, category, rating } = jewl;
-    console.log(rating)
     return <section>
         <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -14,7 +12,7 @@ const Jewellery = ({ jewl }: Jewelery) => {
                     <h2 className="text-sm title-font tracking-widest">{category}</h2>
                     <h1 className=" text-3xl title-font font-medium mb-1">{title}</h1>
                     <div className="flex mb-4">
-                        {Array(Math.ceil(rating.rate)).fill().map((_, i) => <StarIcon key={i} className="h-5 text-yellow-500" />)}
+                        {Array(Math.ceil(rating.rate)).fill(1).map((_, i) => <StarIcon key={i} className="h-5 text-yellow-500" />)}
 
                         <span className="mx-2">
                             | {rating.count}
