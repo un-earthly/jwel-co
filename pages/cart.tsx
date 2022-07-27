@@ -11,10 +11,14 @@ export default function Cart() {
             <Head>
                 <title>Your Cart | Jwel Co</title>
             </Head>
-            <div className="grid">
-                {
-                    jwellaries.map(j => <ProductDetails jewl={j} key={j.id} />)
-                }
+            <div className="h-screen overflow-hidden">
+                <h1 className="text-3xl border-b py-3">Your Cart has: {jwellaries.length > 1 ? jwellaries.length + " items" : jwellaries.length + " item"}</h1>
+                <div>
+
+                    {
+                        jwellaries.map(j => <ProductDetails jewl={j} key={j.id} />)
+                    }
+                </div>
             </div>
         </div>
     )
