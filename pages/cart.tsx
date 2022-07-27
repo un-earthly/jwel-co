@@ -17,7 +17,7 @@ export default function Cart() {
                 <div>
 
                     {
-                        jwellaries.map(({ jewl }: Jewelery) => <ProductDetails jewl={jewl} key={jewl.id} />)
+                        jwellaries.map((j: any) => <ProductDetails jewl={j} key={j.id} />)
                     }
                 </div>
             </div>
