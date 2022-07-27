@@ -1,6 +1,12 @@
+import NextCors from "nextjs-cors";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 export default async (req: any, res: any) => {
     const { items, email } = req.body;
+    await NextCors(req, res, {
+        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+        origin: '*',
+        optionsSuccessStatus: 200,
+    });
     const transformedItems = items.map((item: any) => ({
         description: item.description,
         quantity: item.quantity,
