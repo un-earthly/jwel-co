@@ -14,7 +14,7 @@ export default function checkout() {
     const [user] = useAuthState(auth);
     const createCheckoutSesssion = async () => {
         const stripe: any = await stripePromise;
-        const checkoutSession = await axios.post("http://localhost:3000/api/checkout_session", { items: jwellaries, email: user?.email })
+        const checkoutSession = await axios.post("https://jwel-co.vercel.app/api/checkout_session", { items: jwellaries, email: user?.email })
 
         const result = await stripe.redirectToCheckout({
             sessionId: checkoutSession.data.id

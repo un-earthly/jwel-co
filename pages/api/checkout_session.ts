@@ -21,8 +21,8 @@ export default async (req: any, res: any) => {
         },
         line_items: transformedItems,
         mode: "payment",
-        success_url: `http://localhost:3000/success`,
-        cancel_url: `http://localhost:3000/checkout`,
+        success_url: `https://jwel-co.vercel.app/success`,
+        cancel_url: `https://jwel-co.vercel.app/checkout`,
         metadata: {
             email,
             images: JSON.stringify(items.map((item: any) => item.image)),
