@@ -29,20 +29,16 @@ export default function checkout() {
                 <title>Checkout | Jwel Co</title>
             </Head>
             <div className='flex flex-col m-2 space-y-10 col-span-2'>
-                <h1 className='text-3xl border-b pb-4'>{jwellaries.length === 0 ? "Your Cart is Empty" : "Shopping Cart"}</h1>
+                <h1 className="text-3xl border-b py-3">Your Cart has: {jwellaries.length > 1 ? jwellaries.length + " items" : jwellaries.length + " item"}</h1>
+
 
                 {jwellaries.map((j: any) => (
-
                     <ProductDetails
                         key={j.id}
                         jewl={j} />
                 ))}
             </div>
-            <div className="flex flex-col space-y-5">
-                {/* Total:${total} */}
-                <h1 className='text-3xl border-b pb-4'>$0</h1>
-                <button className="btn btn-primary" onClick={createCheckoutSesssion}>Checkout</button>
-            </div>
+            <button className="btn btn-primary fixed right-5 w-1/4" onClick={createCheckoutSesssion}>Checkout</button>
         </div>
     )
 }

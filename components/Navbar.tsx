@@ -13,7 +13,6 @@ export default function Navbar({ children }: Props) {
     const [user, loading, err] = useAuthState(auth);
     const quantityArray = useSelector(currentItem);
     const quantity = quantityArray.map((q: { quantity: number }) => q.quantity).reduce((a: number, b: number) => a + b, 0)
-
     const menuLinks = <>
         <Link href="/">Home</Link>
 
@@ -38,7 +37,7 @@ export default function Navbar({ children }: Props) {
                 </div>
             </div> : <Link href="/login">Login</Link>
         }
-        <Link href="/cart">
+        <Link href="/checkout">
             <div className="indicator">
                 <span className="indicator-item h-5 w-5 badge">{quantity}</span>
                 <ShoppingCartIcon className="cursor-pointer" height={25} width={25} />
