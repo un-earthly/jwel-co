@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
+interface ArrayOfObjects {
+    items: any
+}
+const initialState: ArrayOfObjects = {
     items: []
 };
 
