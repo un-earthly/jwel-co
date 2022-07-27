@@ -2,10 +2,12 @@ import React from 'react'
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { toast } from 'react-toastify';
 import auth from '../firebase.init'
+import Router, { useRouter } from 'next/router';
 export default function Social() {
     const [SigninWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     const [SignInWithFacebook, Fuser, Floading, Ferror] = useSignInWithFacebook(auth);
-    (Guser || Fuser) ? toast.success(`Logged in as ${Guser?.user.displayName || Fuser?.user.displayName}`) : toast.error(Gerror?.message || Ferror?.message)
+    const router = useRouter();
+    (Guser || Fuser) ? ((Router.push(`${router.query.from}`), toast.success(`Logged in as ${Guser?.user.displayName || Fuser?.user.displayName}`))) : toast.error(Gerror?.message || Ferror?.message)
     return (
         <>
             <div className="divider">OR</div>

@@ -20,7 +20,7 @@ export default function Login() {
     const [login, user, loading, err] = useSignInWithEmailAndPassword(auth);
     const onSubmit: SubmitHandler<Inputs> = ({ email, pass }) => login(email, pass);
     user ? (Router.push(`${router.query.from}`), toast.success(`Logged in as ${user?.user.displayName}`)) : toast.error(err?.message);
-    console.log(router)
+
     return (
         <div>
 
