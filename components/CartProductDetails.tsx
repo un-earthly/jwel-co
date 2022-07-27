@@ -19,14 +19,10 @@ export default function ProductDetails({ jewl }: Jewelery) {
                 <p>{title}</p>
                 <p className='text-xs my-2 line-clamp-3'>
                     {desc}</p>
-                <p>{price}</p>
-
-
             </div>
-            <div className='flex flex-col sm:flex-row space-x-3 items-center justify-self-center sm:justify-self-end mr-5'>
-                <PlusIcon className='h-8 cursor-pointer' />
-                <span className='font-bold'>{quantity}</span>
-                <MinusIcon className='h-8 cursor-pointer' />
+            <div className='flex flex-col  space-x-3 items-center justify-center sm:justify-self-end mr-5'>
+                <span className='font-regular'>{quantity} X ${price}</span>
+                <span>Total : ${parseInt(quantity) * price}</span>
             </div>
             <div className='flex flex-col space-y-2 my-auto justify-self-end'>
                 <AddToCartBtn jewl={jewl} />
