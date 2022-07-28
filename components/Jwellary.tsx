@@ -3,7 +3,7 @@ import React from 'react'
 import { Jewelery } from '../Interfaces/JwellaryInterface';
 import HandleCartBtn from './HandleAddToCartBtn';
 export default function Jwellaries({ jewl }: Jewelery) {
-    const { id, title, price, description: desc, category, image: img } = jewl;
+    const { id, title, price, desc, category, img } = jewl;
 
     return (
 

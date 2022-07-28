@@ -1,9 +1,9 @@
 export interface Jewelery {
     jewl: {
         title: string,
-        description: string,
+        desc: string,
         price: number,
-        image: string,
+        img: string,
         quantity: string,
         category: string,
         rating: { rate: number, count: number },

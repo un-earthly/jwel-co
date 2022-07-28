@@ -14,7 +14,7 @@ const Home: NextPage = ({ jwellaries }: any) => {
         <HomeBanner />
         <div className='grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 gap-4 p-3'>
           {
-            jwellaries.map((j: any) => <Jwellary jewl={j} key={j.id} />)
+            jwellaries.data.map((j: any) => <Jwellary jewl={j} key={j.id} />)
           }
         </div>
       </main>
@@ -26,7 +26,7 @@ export default Home
 
 
 export async function getServerSideProps() {
-  const jwellaries = await fetch("https://fakestoreapi.com/products/category/jewelery")
+  const jwellaries = await fetch("http://localhost:3000/api")
     .then(res => res.json());
 
   return {
