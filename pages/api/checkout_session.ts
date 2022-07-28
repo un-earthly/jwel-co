@@ -8,14 +8,14 @@ export default async (req: any, res: any) => {
         optionsSuccessStatus: 200,
     });
     const transformedItems = items.map((item: any) => ({
-        description: item.description,
+        description: item.desc,
         quantity: item.quantity,
         price_data: {
             currency: "usd",
             unit_amount: item.price * 100,
             product_data: {
                 name: item.title,
-                images: [item.image]
+                images: [item.img]
             }
         }
     }));
@@ -31,7 +31,7 @@ export default async (req: any, res: any) => {
         cancel_url: `https://jwel-co.vercel.app/checkout`,
         metadata: {
             email,
-            images: JSON.stringify(items.map((item: any) => item.image)),
+            images: JSON.stringify(items.map((item: any) => item.img)),
         }
     })
 

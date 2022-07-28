@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../redux/slices/cartSlice';
 
 export default function ProductDetails({ jewl }: Jewelery) {
-    const { title, description: desc, price, image: img, quantity, } = jewl;
+    const { title, desc, price,img, quantity, } = jewl;
     const dispatch = useDispatch();
     const RemoveItem = () => {
         dispatch(removeFromCart(jewl));

@@ -14,7 +14,7 @@ const Home: NextPage = ({ jwellaries }: any) => {
         <HomeBanner />
         <div className='grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 gap-4 p-3'>
           {
-            jwellaries.data.map((j: any) => <Jwellary jewl={j} key={j.id} />)
+            jwellaries.data.slice(0, 10).map((j: any) => <Jwellary jewl={j} key={j.id} />)
           }
         </div>
       </main>

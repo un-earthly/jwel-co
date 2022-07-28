@@ -3,7 +3,7 @@ import AddToCartBtn from "../../components/HandleAddToCartBtn"
 import { Jewelery } from "../../Interfaces/JwellaryInterface"
 
 const Jewellery = ({ jewl }: Jewelery) => {
-    const { image: img, title, price, description: desc, category, rating } = jewl;
+    const { img, title, price, desc, category, rating } = jewl;
     return <section>
         <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
